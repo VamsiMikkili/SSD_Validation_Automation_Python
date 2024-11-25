@@ -1,0 +1,34 @@
+Sequential_Read__Info
+========================================
+[sudo] password for vamsimikkii: seq_read: (g=0): rw=read, bs=(R) 128KiB-128KiB, (W) 128KiB-128KiB, (T) 128KiB-128KiB, ioengine=libaio, iodepth=1
+fio-3.36
+Starting 1 process
+seq_read: Laying out IO file (1 file / 1024MiB)
+
+seq_read: (groupid=0, jobs=1): err= 0: pid=166088: Mon Nov 25 17:20:01 2024
+  read: IOPS=12.3k, BW=1542MiB/s (1617MB/s)(1024MiB/664msec)
+    slat (usec): min=16, max=8910, avg=78.89, stdev=120.48
+    clat (nsec): min=647, max=23682, avg=1339.78, stdev=876.49
+     lat (usec): min=16, max=8923, avg=80.23, stdev=120.94
+    clat percentiles (nsec):
+     |  1.00th=[  684],  5.00th=[  708], 10.00th=[  724], 20.00th=[  748],
+     | 30.00th=[  804], 40.00th=[  908], 50.00th=[ 1256], 60.00th=[ 1352],
+     | 70.00th=[ 1416], 80.00th=[ 1592], 90.00th=[ 2192], 95.00th=[ 3152],
+     | 99.00th=[ 4048], 99.50th=[ 4320], 99.90th=[ 7584], 99.95th=[13120],
+     | 99.99th=[23680]
+   bw (  MiB/s): min= 1450, max= 1450, per=94.02%, avg=1450.00, stdev= 0.00, samples=1
+   iops        : min=11600, max=11600, avg=11600.00, stdev= 0.00, samples=1
+  lat (nsec)   : 750=20.84%, 1000=22.66%
+  lat (usec)   : 2=45.34%, 4=10.06%, 10=1.05%, 20=0.04%, 50=0.02%
+  cpu          : usr=1.66%, sys=84.77%, ctx=2919, majf=0, minf=44
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=8192,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=1542MiB/s (1617MB/s), 1542MiB/s-1542MiB/s (1617MB/s-1617MB/s), io=1024MiB (1074MB), run=664-664msec
+
+Disk stats (read/write):
+  nvme0n1: ios=6971/0, sectors=1784576/0, merge=0/0, ticks=1016/0, in_queue=1017, util=64.90%

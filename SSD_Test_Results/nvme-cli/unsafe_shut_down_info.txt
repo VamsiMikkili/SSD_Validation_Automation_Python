@@ -1,0 +1,3 @@
+Unsafe_Shut_Down_Info
+========================================
+[sudo] password for vamsimikkii: unsafe_shutdowns			: 192

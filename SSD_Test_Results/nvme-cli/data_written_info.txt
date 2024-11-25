@@ -1,0 +1,3 @@
+Data_Written_Info
+========================================
+[sudo] password for vamsimikkii: Data Units Written			: 107871209 (55.23 TB)

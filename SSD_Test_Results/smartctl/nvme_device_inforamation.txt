@@ -1,0 +1,5 @@
+NVMe_Device_Inforamation
+========================================
+Model Number:                       PC601 NVMe SK hynix 512GB
+Serial Number:                      NN02N45471140275K
+NVMe Version:                       1.3

@@ -1,0 +1,148 @@
+Power-Cycles Info
+========================================
+Error executing command: [sudo] password for vamsimikkii: ERROR: Invalid sub-command 'power-cycles'
+nvme-2.8
+usage: nvme <command> [<device>] [<args>]
+
+The '<device>' may be either an NVMe character device (ex: /dev/nvme0), an
+nvme block device (ex: /dev/nvme0n1), or a mctp address in the form
+mctp:<net>,<eid>[:ctrl-id]
+
+The following are all implemented sub-commands:
+  list                         List all NVMe devices and namespaces on machine
+  list-subsys                  List nvme subsystems
+  id-ctrl                      Send NVMe Identify Controller
+  id-ns                        Send NVMe Identify Namespace, display structure
+  id-ns-granularity            Send NVMe Identify Namespace Granularity List, display structure
+  id-ns-lba-format             Send NVMe Identify Namespace for the specified LBA Format index, display structure
+  list-ns                      Send NVMe Identify List, display structure
+  list-ctrl                    Send NVMe Identify Controller List, display structure
+  nvm-id-ctrl                  Send NVMe Identify Controller NVM Command Set, display structure
+  nvm-id-ns                    Send NVMe Identify Namespace NVM Command Set, display structure
+  nvm-id-ns-lba-format         Send NVMe Identify Namespace NVM Command Set for the specified LBA Format index, display structure
+  primary-ctrl-caps            Send NVMe Identify Primary Controller Capabilities
+  list-secondary               List Secondary Controllers associated with a Primary Controller
+  cmdset-ind-id-ns             I/O Command Set Independent Identify Namespace
+  ns-descs                     Send NVMe Namespace Descriptor List, display structure
+  id-nvmset                    Send NVMe Identify NVM Set List, display structure
+  id-uuid                      Send NVMe Identify UUID List, display structure
+  id-iocs                      Send NVMe Identify I/O Command Set, display structure
+  id-domain                    Send NVMe Identify Domain List, display structure
+  list-endgrp                  Send NVMe Identify Endurance Group List, display structure
+  create-ns                    Creates a namespace with the provided parameters
+  delete-ns                    Deletes a namespace from the controller
+  attach-ns                    Attaches a namespace to requested controller(s)
+  detach-ns                    Detaches a namespace from requested controller(s)
+  get-ns-id                    Retrieve the namespace ID of opened block device
+  get-log                      Generic NVMe get log, returns log in raw format
+  telemetry-log                Retrieve FW Telemetry log write to file
+  fw-log                       Retrieve FW Log, show it
+  changed-ns-list-log          Retrieve Changed Namespace List, show it
+  smart-log                    Retrieve SMART Log, show it
+  ana-log                      Retrieve ANA Log, show it
+  error-log                    Retrieve Error Log, show it
+  effects-log                  Retrieve Command Effects Log, show it
+  endurance-log                Retrieve Endurance Group Log, show it
+  predictable-lat-log          Retrieve Predictable Latency per Nvmset Log, show it
+  pred-lat-event-agg-log       Retrieve Predictable Latency Event Aggregate Log, show it
+  persistent-event-log         Retrieve Persistent Event Log, show it
+  endurance-event-agg-log      Retrieve Endurance Group Event Aggregate Log, show it
+  lba-status-log               Retrieve LBA Status Information Log, show it
+  resv-notif-log               Retrieve Reservation Notification Log, show it
+  boot-part-log                Retrieve Boot Partition Log, show it
+  phy-rx-eom-log               Retrieve Physical Interface Receiver Eye Opening Measurement, show it
+  get-feature                  Get feature and show the resulting value
+  device-self-test             Perform the necessary tests to observe the performance
+  self-test-log                Retrieve the SELF-TEST Log, show it
+  supported-log-pages          Retrieve the Supported Log pages details, show it
+  fid-support-effects-log      Retrieve FID Support and Effects log and show it
+  mi-cmd-support-effects-log   Retrieve MI Command Support and Effects log and show it
+  media-unit-stat-log          Retrieve the configuration and wear of media units, show it
+  supported-cap-config-log     Retrieve the list of Supported Capacity Configuration Descriptors
+  set-feature                  Set a feature and show the resulting value
+  set-property                 Set a property and show the resulting value
+  get-property                 Get a property and show the resulting value
+  format                       Format namespace with new block format
+  fw-commit                    Verify and commit firmware to a specific slot (fw-activate in old version < 1.2)
+  fw-download                  Download new firmware
+  admin-passthru               Submit an arbitrary admin command, return results
+  io-passthru                  Submit an arbitrary IO command, return results
+  security-send                Submit a Security Send command, return results
+  security-recv                Submit a Security Receive command, return results
+  get-lba-status               Submit a Get LBA Status command, return results
+  capacity-mgmt                Submit Capacity Management Command, return results
+  resv-acquire                 Submit a Reservation Acquire, return results
+  resv-register                Submit a Reservation Register, return results
+  resv-release                 Submit a Reservation Release, return results
+  resv-report                  Submit a Reservation Report, return results
+  dsm                          Submit a Data Set Management command, return results
+  copy                         Submit a Simple Copy command, return results
+  flush                        Submit a Flush command, return results
+  compare                      Submit a Compare command, return results
+  read                         Submit a read command, return results
+  write                        Submit a write command, return results
+  write-zeroes                 Submit a write zeroes command, return results
+  write-uncor                  Submit a write uncorrectable command, return results
+  verify                       Submit a verify command, return results
+  sanitize                     Submit a sanitize command
+  sanitize-log                 Retrieve sanitize log, show it
+  reset                        Resets the controller
+  subsystem-reset              Resets the subsystem
+  ns-rescan                    Rescans the NVME namespaces
+  show-regs                    Shows the controller registers or properties. Requires character device
+  discover                     Discover NVMeoF subsystems
+  connect-all                  Discover and Connect to NVMeoF subsystems
+  connect                      Connect to NVMeoF subsystem
+  disconnect                   Disconnect from NVMeoF subsystem
+  disconnect-all               Disconnect from all connected NVMeoF subsystems
+  config                       Configuration of NVMeoF subsystems
+  gen-hostnqn                  Generate NVMeoF host NQN
+  show-hostnqn                 Show NVMeoF host NQN
+  gen-dhchap-key               Generate NVMeoF DH-HMAC-CHAP host key
+  check-dhchap-key             Validate NVMeoF DH-HMAC-CHAP host key
+  gen-tls-key                  Generate NVMeoF TLS PSK
+  check-tls-key                Validate NVMeoF TLS PSK
+  dir-receive                  Submit a Directive Receive command, return results
+  dir-send                     Submit a Directive Send command, return results
+  virt-mgmt                    Manage Flexible Resources between Primary and Secondary Controller
+  rpmb                         Replay Protection Memory Block commands
+  lockdown                     Submit a Lockdown command,return result
+  dim                          Send Discovery Information Management command to a Discovery Controller
+  show-topology                Show the topology
+  io-mgmt-recv                 I/O Management Receive
+  io-mgmt-send                 I/O Management Send
+  nvme-mi-recv                 Submit a NVMe-MI Receive command, return results
+  nvme-mi-send                 Submit a NVMe-MI Send command, return results
+  version                      Shows the program version
+  help                         Display this help
+
+See 'nvme help <command>' for more information on a specific command
+
+The following are all installed plugin extensions:
+  sed             SED Opal Command Set
+  ocp             OCP cloud SSD extensions
+  zns             Zoned Namespace Command Set
+  ymtc            Ymtc vendor specific extensions
+  wdc             Western Digital vendor specific extensions
+  virtium         Virtium vendor specific extensions
+  transcend       Transcend vendor specific extensions
+  toshiba         Toshiba NVME plugin
+  solidigm        Solidigm vendor specific extensions
+  shannon         Shannon vendor specific extensions
+  seagate         Seagate vendor specific extensions
+  sfx             ScaleFlux vendor specific extensions
+  nvidia          NVIDIA vendor specific extensions
+  netapp          NetApp vendor specific extensions
+  nbft            ACPI NBFT table extensions
+  micron          Micron vendor specific extensions
+  memblaze        Memblaze vendor specific extensions
+  intel           Intel vendor specific extensions
+  inspur          Inspur vendor specific extensions
+  innogrit        innogrit vendor specific extensions
+  huawei          Huawei vendor specific extensions
+  fdp             Manage Flexible Data Placement enabled devices
+  dera            Dera vendor specific extensions
+  dell            DELL vendor specific extensions
+  amzn            Amazon vendor specific extensions
+
+See 'nvme <plugin> help' for more information on a plugin

@@ -1,0 +1,3 @@
+Get Features
+========================================
+[sudo] password for vamsimikkii: get-feature:0x01 (Arbitration), Current value:0x00000002

@@ -1,0 +1,3 @@
+Sensors_Temperature_Info
+========================================
+Error executing command: [sudo] password for vamsimikkii: 

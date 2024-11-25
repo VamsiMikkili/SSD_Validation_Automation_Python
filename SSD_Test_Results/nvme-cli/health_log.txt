@@ -1,0 +1,27 @@
+Health Log
+========================================
+[sudo] password for vamsimikkii: Smart Log for NVME device:nvme0n1 namespace-id:ffffffff
+critical_warning			: 0
+temperature				: 41 °C (314 K)
+available_spare				: 100%
+available_spare_threshold		: 50%
+percentage_used				: 4%
+endurance group critical warning summary: 0
+Data Units Read				: 104718412 (53.62 TB)
+Data Units Written			: 107871209 (55.23 TB)
+host_read_commands			: 2275805458
+host_write_commands			: 2511656722
+controller_busy_time			: 10348
+power_cycles				: 1327
+power_on_hours				: 13734
+unsafe_shutdowns			: 192
+media_errors				: 0
+num_err_log_entries			: 0
+Warning Temperature Time		: 0
+Critical Composite Temperature Time	: 0
+Temperature Sensor 1           : 41 °C (314 K)
+Temperature Sensor 2           : 38 °C (311 K)
+Thermal Management T1 Trans Count	: 0
+Thermal Management T2 Trans Count	: 0
+Thermal Management T1 Total Time	: 0
+Thermal Management T2 Total Time	: 0

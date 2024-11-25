@@ -1,0 +1,7 @@
+Long_Self-Test Log
+========================================
+Error executing command: smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-49-generic] (local build)
+Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org
+
+Read Self-test Log failed: Invalid Namespace or Format (0x00b)
+

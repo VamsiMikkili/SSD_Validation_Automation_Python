@@ -1,0 +1,4 @@
+Firmware_Version_Info
+========================================
+[sudo] password for vamsimikkii: fr        : 80002111
+frmw      : 0x16
