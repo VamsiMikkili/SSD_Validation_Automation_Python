@@ -9,7 +9,7 @@ class NVMePerformaceCheck:
         self.device = device
         self.sudo_password = sudo_password
         self.fio_results = {}
-        self.IoPing_results = {}
+        self.DD_results = {}
 
     '''
     This is Common Function which can run all commands by using subprocess if there is any Errors in command
@@ -91,10 +91,32 @@ class NVMePerformaceCheck:
     def throughput_test(self):
         return self.fio_performance_test("throughput", "libaio", "write", "128k", "10G", 16, 60, iodepth=32)
 
-    # IO_Ping Commands
+    # DD Commands
 
+    #Sequential write test using dd command
+    def dd_sequential_write_test(self, block_size, count):
+        command = f"dd if=/dev/zero of={self.device} bs={block_size} count={count} oflag=direct status=progress"
+        return self.run_command(command)
 
+    #Sequential read test using dd command
+    def dd_sequential_read_test(self, block_size, count):
+        command = f"dd if={self.device} of=/dev/null bs={block_size} count={count} iflag=direct status=progress"
+        return self.run_command(command)
 
+    #Random write test using dd command
+    def dd_random_write_test(self, block_size, count):
+        command = f"dd if=/dev/urandom of={self.device} bs={block_size} count={count} oflag=direct status=progress"
+        return self.run_command(command)
+
+    #Random read test using dd command
+    def dd_random_read_test(self, block_size, count):
+        command = f"dd if={self.device} of=/dev/null bs={block_size} count={count} iflag=direct status=progress"
+        return self.run_command(command)
+
+    #Throughput using dd with large block size
+    def dd_throughput_test(self, block_size, count):
+        command = f"dd if=/dev/zero of={self.device} bs={block_size} count={count} oflag=direct status=progress"
+        return self.run_command(command)
 
     # TestS_Runner
 
@@ -109,27 +131,34 @@ class NVMePerformaceCheck:
         self.fio_results['Large_Block_Random_Write_Test'] = self.large_block_random_write_test()
         self.fio_results['Throughput_Test'] = self.throughput_test()
 
+    def run_all_dd_tests(self):
+        self.DD_results['Sequential_Write_Test'] = self.dd_sequential_write_test("128k", 1024)
+        self.DD_results['Sequential_Read_Test'] = self.dd_sequential_read_test("128k", 1024)
+        self.DD_results['Random_Write_Test'] = self.dd_random_write_test("4k", 1024)
+        self.DD_results['Random_Read_Test'] = self.dd_random_read_test("4k", 1024)
+        self.DD_results['Throughput_Test'] = self.dd_throughput_test("128k", 1024)
+
 
     #Save The Results In Directory
     def save_results(self, base_dir):
-        # Create folders for fio and IoPing results
-        Fio_dir = os.path.join(base_dir, "Fio_Results")
-        IoPing_dir = os.path.join(base_dir, "IoPing_Results")
-        os.makedirs(Fio_dir, exist_ok=True)
-        os.makedirs(IoPing_dir, exist_ok=True)
+        # Create folders for FIO and DD results
+        Fio_Dir = os.path.join(base_dir, "Fio_Results")
+        DD_Dir = os.path.join(base_dir, "DD_Results")
+        os.makedirs(Fio_Dir, exist_ok=True)
+        os.makedirs(DD_Dir, exist_ok=True)
 
-        # Save fio results
+        # Save Fio results
         for test_name, output in self.fio_results.items():
             file_name = f"{test_name.replace(' ', '_').lower()}.txt"
-            file_path = os.path.join(Fio_dir, file_name)
+            file_path = os.path.join(Fio_Dir, file_name)
             with open(file_path, "w") as file:
                 file.write(f"{test_name}\n{'=' * 40}\n{output}")
             print(f"Saved {test_name} results to {file_path}")
 
-        # Save IoPing results
-        for test_name, output in self.IoPing_results.items():
+        # Save nvme-cli results
+        for test_name, output in self.DD_results.items():
             file_name = f"{test_name.replace(' ', '_').lower()}.txt"
-            file_path = os.path.join(IoPing_dir, file_name)
+            file_path = os.path.join(DD_Dir, file_name)
             with open(file_path, "w") as file:
                 file.write(f"{test_name}\n{'=' * 40}\n{output}")
             print(f"Saved {test_name} results to {file_path}")

@@ -3,7 +3,6 @@ import os
 from getpass import getpass
 from click import command
 
-
 class SSDValidation:
     def __init__(self, device, sudo_password):
         self.device = device
