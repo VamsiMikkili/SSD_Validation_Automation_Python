@@ -182,8 +182,28 @@ class SSDValidation:
 
     #This will show Sensors Temperature
     def nvme_temperature_sensors(self):
-        command = f"nvme {self.device}| grep 'Temperature Sensor'"
+        command = f"nvme {self.device} | grep 'Temperature Sensor'"
         return self.run_command(command)
+
+    #This will show Any CriticalWarnings is found
+    def nvme_critical_Warning_check(self):
+        command = f"nvme smart-log {self.device} | grep -i 'critical_warning'"
+        return self.run_command(command)
+
+    def nvme_available_spareTest(self):
+        command = f"nvme smart-log {self.device} | grep -i 'available_spare'"
+        return self.run_command(command)
+
+    def nvme_available_spare_threshold(self):
+        command = f"nvme smart-log {self.device} | grep -i 'available_spare_threshold'"
+        return self.run_command(command)
+
+    def nvme_continuous_temperature_Monitor(self):
+        command = f"watch -n 1 nvme smart-log {self.device} | grep 'temperature'"
+        return self.run_command(command)
+
+
+
 
     # --- Test Runner ---
 
@@ -234,6 +254,7 @@ class SSDValidation:
         self.nvmecli_results['Percentage_Used_Info'] = self.nvme_percentage_used()
         self.nvmecli_results['Unsafe_Shut_Down_Info'] = self.nvme_unsafe_shutdowns()
         self.nvmecli_results['Sensors_Temperature_Info'] = self.nvme_temperature_sensors()
+        self.nvmecli_results['Critical_Warnings_Info'] = self.nvme_critical_Warning_check()
 
 
     # --- Save Results ---
